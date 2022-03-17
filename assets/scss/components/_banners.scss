@@ -1,0 +1,54 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    &__image{
+        width: 100%;
+        height: toRem(500);
+    }
+
+    &__background {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        margin-top: toRem(100);
+        width: 100%;
+
+        &Text {
+            display: flex;
+            flex-direction: column;
+            font-family: $mainFont;
+            text-align: center;
+            gap: toRem(10);
+            position: absolute;
+            top: toRem(30);
+
+            &Header {
+                color: $ddBlue;
+                font-size: toRem(23);
+            }
+
+            &SubHeaders {
+                display: flex;
+                flex-direction: column;
+                gap: toRem(5);
+
+                &Item {
+                    font-size: toRem(13);
+                    color: $grayishBlue;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $breakDesktop) {
+    .banner__backgroundTextSubHeaders {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
