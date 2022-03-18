@@ -14,7 +14,7 @@
         flex-direction: column;
         align-items: center;
         position: absolute;
-        margin-top: toRem(100);
+        margin-top: toRem(55);
         width: 100%;
 
         &Text {
@@ -24,11 +24,11 @@
             text-align: center;
             gap: toRem(10);
             position: absolute;
-            top: toRem(30);
+            top: toRem(35);
 
             &Header {
                 color: $ddBlue;
-                font-size: toRem(23);
+                font-size: toRem(20);
             }
 
             &SubHeaders {
@@ -37,7 +37,7 @@
                 gap: toRem(5);
 
                 &Item {
-                    font-size: toRem(13);
+                    font-size: toRem(14);
                     color: $grayishBlue;
                     font-weight: 600;
                 }
@@ -46,9 +46,13 @@
     }
 }
 
-@media (min-width: $breakDesktop) {
+@media (min-width: 768px) {
     .banner__backgroundTextSubHeaders {
         flex-direction: row;
         justify-content: center;
+    }
+
+    .banner__backgroundTextHeader {
+        font-size: toRem(25);
     }
 }

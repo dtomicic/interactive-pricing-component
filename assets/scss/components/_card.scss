@@ -1,0 +1,292 @@
+.main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    &__card {
+        position: absolute;
+        bottom: toRem(65);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: toRem(10);
+        background-color: $veryPaleBlue;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        font-family: $mainFont;
+        padding: toRem(30) 0;
+        max-width: toRem(337);
+
+        &Top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            &Header {
+                display: flex;
+                width: 95%;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: toRem(40);
+
+                &Amount {
+                    font-weight: 800;
+                    letter-spacing: toRem(2);
+                    color: $grayishBlue;
+                    font-size: toRem(11);
+                }
+
+                &Money {
+                    display: flex;
+                    align-items: center;
+                    gap: toRem(10);
+
+                    &Number {
+                        color: $ddBlue;
+                        font-size: toRem(32);
+                    }
+
+                    &Text {
+                        color: $grayishBlue;
+                        font-weight: 600;
+                        font-size: toRem(15)
+                    }
+
+                    &.desktop {
+                        display: none;
+                    }
+
+                    &.mobile {
+                        margin-bottom: toRem(30);
+                    }
+                }
+            }
+
+            &SliderContainer {
+                width: 90%;
+                margin-bottom: toRem(30);
+
+                &Item {
+                    appearance: none;
+                    width: 100%;
+                    background: $lightGrayishBlue;
+                    border-radius: toRem(50);
+                    outline: none;
+                    height: toRem(10);
+                    cursor: pointer;
+
+                    &::-webkit-slider-thumb {
+                        appearance: none;
+                        height: toRem(40);
+                        width: toRem(40);
+                        border-radius: toRem(100);
+                        background-color: $strongCyan;
+                        opacity: 0.7;
+                        background-image: url('../../assets/images/icon-slider.svg');
+                        background-repeat: no-repeat;
+                        background-size: 20px 15px;
+                        background-position: center center;
+                        z-index: 9999;
+                        position: relative;
+                        transition: ease-in-out 0.4s;
+                        box-shadow: 0px 10px 15px 5px $softCyan;
+
+                        &:hover {
+                            background-color: hsl(174, 88%, 27%);
+                        }
+                    }
+                }
+            }
+
+            &Billing {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                gap: toRem(10);
+                position: relative;
+                left: toRem(21);
+
+                &Header {
+                    font-size: toRem(12);
+                    color: $grayishBlue;
+                    font-weight: 600;
+                }
+
+                &Switch {
+                    position: relative;
+                    display: block;
+                    width: toRem(40);
+
+                    & input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+
+                        &:checked + .slider {
+                            background-color: $strongCyan;
+                          }
+
+                        &:checked + .slider:before {
+                            transform: translateX(16px);
+                          }
+                    }
+                }
+
+                &Percentage {
+                    display: flex;
+                    align-items: center;
+                    gap: toRem(5);
+
+                    &Btn {
+                        background-color: $lightGrayishRed;
+                        color: $lightRed;
+                        border-radius: toRem(50);
+                        padding: toRem(2) toRem(8);
+                        
+                        &Header {
+                            display: flex;
+                            font-size: toRem(12);
+
+                            &Text {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &Bottom {
+            display: flex;
+            flex-direction: column;
+            gap: toRem(10);
+            margin-top: toRem(40);
+
+            &Left {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: toRem(10);
+
+                &Item {
+                    display: flex;
+                    align-items: center;
+                    gap: toRem(10);
+
+                    &Header {
+                        font-weight: 600;
+                        color: $grayishBlue;
+                        font-size: toRem(13);
+                    }
+                }
+            }
+
+            &Right {
+                display: flex;
+                justify-content: center;
+                margin-top: toRem(20);
+
+                &Btn {
+                    background-color: $ddBlue;
+                    color: $lgBlue;
+                    padding: toRem(15) toRem(46);
+                    border-radius: toRem(50);
+                    transition: ease-in-out 0.4s;
+
+                    &Header {
+                        font-size: toRem(14);
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cardLine {
+    width: 100%;
+    height: toRem(1);
+    background-color: $lightGrayishBlue;
+    margin-top: toRem(30);
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $lgBlue;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: toRem(50);
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: toRem(15);
+    width: toRem(15);
+    left: toRem(4);
+    bottom: toRem(3.6);
+    border-radius: 50%;
+    background-color: white;
+    transition: .4s;
+  }
+  
+//   Media queries
+@media(min-width: 768px) {
+    .main__card {
+        max-width: toRem(690);
+        bottom: toRem(300);
+
+        &TopHeader {
+            justify-content: space-between;
+            padding: 0 toRem(20);
+
+            &Money.desktop {
+                display: flex;
+            }
+
+            &Money.mobile {
+                display: none;
+            }
+        }
+
+        &TopBilling {
+            left: toRem(43);
+            margin-top: toRem(20);
+
+            &PercentageBtnHeaderText {
+                display: block;
+            }
+        }
+
+        &Bottom {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 toRem(40);
+            align-items: flex-start;
+
+            &Left {
+                align-items: flex-start;
+            }
+
+            &RightBtn {
+                padding: toRem(13) toRem(45);
+
+                &Header {
+                    font-size: toRem(13);
+                }
+            }
+        }
+    }
+}
